@@ -1,4 +1,4 @@
-# DevonianLeaderboard
+# devonianleaderboard
 The official devonian leaderboard for Hypixel Skyblock
 
 # Purpose
