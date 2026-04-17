@@ -2,7 +2,11 @@
 The official devonian leaderboard for Hypixel Skyblock
 
 # Purpose
-The purpose for this leaderboard is to have a **legit** competitive leaderboard as well as having an in game way to view this so more people are inclined into competing against each other.
+For a long time, the top dungeon records haven't been a fair fight. Most of the leaderboard was just a list of who had the best cheats or macros, which killed the drive to actually get good at the game. The Devonian Leaderboard is here to fix that.
+
+We’re building a space where your time actually reflects your skill. We want to see what players can do on a level playing field, where coordination and practice are the only things that matter. It is definitely harder to play without the shortcuts everyone else uses, and you will probably fail more runs because of it. But in this scene, a legit time is worth more than a thousand cheated ones.
+
+The leaderboard is open for anyone ready to put in the work. Just remember that a smooth sea never made a skilled sailor and good luck on the grind.
 
 # Contacts
 [(Synnerz) Devonian Discord Server](https://discord.gg/DgRsG2PZS9)
