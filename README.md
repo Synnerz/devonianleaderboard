@@ -5,7 +5,7 @@ The official devonian leaderboard for Hypixel Skyblock
 The purpose for this leaderboard is to have a **legit** competitive leaderboard as well as having an in game way to view this so more people are inclined into competing against each other.
 
 # Contacts
-[Synnerz/Devonian Discord Server](https://discord.gg/DgRsG2PZS9)
+[(Synnerz) Devonian Discord Server](https://discord.gg/DgRsG2PZS9)
 
 [M7Guides Discord Server](https://discord.gg/9xKvEj97GV)
 
@@ -36,7 +36,7 @@ Examples of **Disallowed** modifications:
 * **Pet Keybinds**
 * **Highlighting entities through walls (ESP)**
 
-There also exist a broader "rule" for specific actions called "The 1:1 Rule":
+There also exists a broader "rule" for specific actions called "The 1:1 Rule":
 * Any physical input **MUST** result in exactly one (1) output. Each output **MUST** have a maximum of one (1) physical input that triggers it.
 </details>
 
@@ -52,7 +52,7 @@ Modifications in this category are Quality of Life (QOL) features accepted by th
 
 **Allowed** Modifications:
 * All features listed in **Hypixel Legit**
-* **Latency Fixed** - 50 Ping Dungeon Breaker and visual zero-ping Teleport/Etherwarp
+* **Latency Fixes** - 50 Ping Dungeon Breaker and visual zero-ping Teleport/Etherwarp
 * **Movement** - No Rotate
 * **Keybinds** - Slot binding, Wardrobe, Pet, and Leap menu keybinds.
 </details>
