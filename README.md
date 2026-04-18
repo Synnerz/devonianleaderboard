@@ -24,7 +24,7 @@ Your run's category depends on your team members, if most of them are considered
     </summary>
 
 Modifications in this category are limited to those explicitly allowed by Hypixel or those not properly defined as providing an unfair advantage.
-> Note: **most** features in **Devonian** are allowed in this section with some exceptions.
+> Note: **most** features in [**Devonian**](https://modrinth.com/mod/devonian) are allowed in this section with some exceptions.
 
 Examples of **Allowed** modifications:
 * **Solvers** - Visual highlights for correct answers
@@ -53,7 +53,7 @@ There also exists a broader "rule" for specific actions called "The 1:1 Rule":
     </summary>
 
 Modifications in this category are Quality of Life (QOL) features accepted by the community, due to them fixing mechanical inconsistencies or high latency issues.
-> Note: **most** features in **Devonian** and **DevonianSolo** are allowed in this section with some exceptions.
+> Note: **most** features in [**Devonian**](https://modrinth.com/mod/devonian) and [**DevonianSolo**](https://github.com/DocilElm/devoniansolo) are allowed in this section with some exceptions.
 
 **Allowed** Modifications:
 * All features listed in **Hypixel Legit**
