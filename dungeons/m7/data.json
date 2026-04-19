@@ -12,5 +12,19 @@
     "hypixelLegit": false,
     "displayNames": true,
     "uploadedAt": "2/5/2026"
+  },
+  {
+    "teamName": "",
+    "time": 544,
+    "players": [
+      "43c561aa-ed1b-4f8b-8fa6-f28a8aaafaad",
+      "9c6f9faa-f45d-4710-a0d1-ffffde6dd85b",
+      "54b007f3-1e62-4209-803a-17139063dc71",
+      "f8f0ceec-020d-4769-b75c-3096c1dd7d1f",
+      "e90c7c74-b5bf-40b4-a209-6233995f06f8"
+    ],
+    "hypixelLegit": true,
+    "displayNames": true,
+    "uploadedAt": "1/31/2026"
   }
 ]
