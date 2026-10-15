@@ -1,0 +1,66 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url("images/bossfight.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200 200 200);
+  letter-spacing: 2px;
+  font-size: 1.0rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td,
+th {
+  border: 2px solid rgb(190 190 190);
+  padding: 10px 20px;
+}
+
+th {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+td {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+tr:nth-child(odd) td {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.top_one {
+  color: rgb(255, 183, 0);
+}
+
+.top_two {
+    color: rgb(255, 183, 0, 0.6);
+}
+
+.top_three {
+    color: white;
+}
+
+table,
+td,
+th,
+tr,
+.top_one,
+.top_two,
+.top_three {
+    text-shadow: 2px 2px 4px black;
+}

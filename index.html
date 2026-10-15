@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Leaderboard</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <h1 style="text-align: center; color: white;">
+        <span style="color: darkred;">M7 </span>
+        <span style="color: purple;">S+ </span>
+        Leaderboard
+    </h1>
+
+    <table id="ranking">
+        <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Hypixel Legit</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Modifiers</th>
+        </tr>
+
+    </table>
+  </body>
+</html>
+
+<script>
+    (async () => {
+        const table = document.getElementById("ranking").getElementsByTagName("tbody")[0]
+        const rankId = ["top_one", "top_two", "top_three"]
+
+        const formatSeconds = (seconds) => {
+            let ss = Math.floor(seconds)
+            let mm = Math.floor(ss / 60)
+            let hh = Math.floor(mm / 60)
+            let str = ""
+
+            ss %= 60
+            mm %= 60
+            hh %= 24
+
+            if (hh) str += `${hh}h`
+            if (mm) str += ` ${mm}m`
+
+            str += ` ${ss}s`
+            return str
+        }
+
+        const fetchUUID = async (uuid) => {
+            let name = null
+            try {
+                const response = await fetch(`https://playerdb.co/api/player/minecraft/${uuid}`)
+                if (!response.ok)
+                    throw new Error(`Bad Response? ${response.status}`)
+                const res = await response.json()
+
+                name = res.data?.player?.username
+            } catch (error) {
+                console.error(error.message)
+            }
+
+            return name
+        }
+
+        const fetchLB = async () => {
+            let list = []
+            try {
+                const response = await fetch("https://raw.githubusercontent.com/Synnerz/devonianleaderboard/refs/heads/main/dungeons/m7/data.json")
+                if (!response.ok)
+                    throw new Error(`Bad Response? ${response.status}`)
+                const res = await response.json()
+
+                for (it of res) {
+                    const playerNames = []
+
+                    for await (const uuid of it.players) {
+                        const name = await fetchUUID(uuid)
+                        if (name) playerNames.push(name)
+                    }
+
+                    if (playerNames.length != 0 && it.displayNames)
+                        it.teamName = playerNames.join(", ")
+
+                    list.push(it)
+                }
+            } catch (error) {
+                console.error(error.message)
+            }
+
+            return list
+        }
+
+        const loadTable = async () => {
+            try {
+                const data = await fetchLB()
+                const sorted = data.sort((a, b) => a.time - b.time)
+
+                for (let idx = 0; idx < sorted.length; idx++) {
+                    let run = sorted[idx]
+                    let roleId = rankId[idx]
+                    let clz = roleId ? `class="${roleId}"` : ""
+
+                    table.insertAdjacentHTML("beforeend", `
+                    <tr>
+                        <td ${clz}>${idx + 1}</td>
+                        <td ${clz}>${run.teamName}</td>
+                        <td ${clz}>${run.hypixelLegit}</td>
+                        <td ${clz}>${formatSeconds(run.time)}</td>
+                        <td ${clz}>${run.uploadedAt}</td>
+                        <td ${clz}>NONE</td>
+                    </tr>
+                    `)
+                }
+            } catch (error) {
+                console.error(error.message)
+            }
+        }
+
+        loadTable()
+    })()
+</script>
