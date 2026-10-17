@@ -1,5 +1,6 @@
 [
   {
+    "floor": "M7",
     "teamName": "ziyno perm",
     "time": 267,
     "players": [
@@ -9,11 +10,20 @@
       "78f1fa8e-dcdc-4795-8caf-e652bcfc36d2",
       "9386019f-23c6-4501-a099-0338db365c07"
     ],
+    "proof": [
+      "https://youtu.be/dLYnQe28MyE",
+      "https://youtu.be/Ti_fKAONrws",
+      "https://youtu.be/4ioxszDxJEM",
+      "https://youtu.be/a6GRwsTnjyU",
+      "https://youtu.be/AoqpYfZ05RU7"
+    ],
+    "modifiers": [],
     "hypixelLegit": false,
     "displayNames": true,
     "uploadedAt": "2/5/2026"
   },
   {
+    "floor": "M7",
     "teamName": "",
     "time": 544,
     "players": [
@@ -23,6 +33,14 @@
       "f8f0ceec-020d-4769-b75c-3096c1dd7d1f",
       "e90c7c74-b5bf-40b4-a209-6233995f06f8"
     ],
+    "proof": [
+      "https://www.youtube.com/watch?v=xNQCEAtGVu4",
+      "https://www.youtube.com/watch?v=2Ttt3wt70jM",
+      "https://www.youtube.com/watch?v=saZOeDDGfNI",
+      "https://www.youtube.com/watch?v=ihygRnllJ5M",
+      "https://www.youtube.com/watch?v=M4GCPdDS4-U"
+    ],
+    "modifiers": [],
     "hypixelLegit": true,
     "displayNames": true,
     "uploadedAt": "1/31/2026"
