@@ -4,10 +4,11 @@ html {
 
 body {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-    url("images/bossfight.png");
+    url("images/boss/necron.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
 }
 
 table {
@@ -48,11 +49,17 @@ tr:nth-child(odd) td {
 }
 
 .top_two {
-    color: rgb(255, 183, 0, 0.6);
+  color: rgb(255, 183, 0, 0.6);
 }
 
 .top_three {
-    color: white;
+  color: white;
+}
+.category {
+  color: white;
+  font-size: 1.5rem;
+  border: rgb(0, 0, 0, 0);
+  background: rgb(0, 0, 0);
 }
 
 table,
@@ -61,6 +68,7 @@ th,
 tr,
 .top_one,
 .top_two,
-.top_three {
+.top_three,
+.category {
     text-shadow: 2px 2px 4px black;
 }
