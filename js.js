@@ -2,7 +2,12 @@ const table = document.getElementById("ranking").getElementsByTagName("tbody")[0
 const selector = document.getElementById("categories")
 const spanFloor = document.getElementById("floor")
 const spanType = document.getElementById("type")
+const modalProof = document.getElementById("modal-proof")
+const modalProofBody = document.getElementById("modal-body")
+const modalSpanClose = document.getElementsByClassName("close")[0]
 
+// (linkId, linkTime)
+const youtubeLinkRegex = /^https:\/\/(?:www\.)?youtu(?:\.)?be(?:\.com)?\/(?:watch\?v=)?([\w-]+)\??t?=?(\d+)?$/
 const rankId = ["top_one", "top_two", "top_three"]
 const bossNames = ["watcher", "bonzo", "scarf", "professor", "thorn", "livid", "sadan", "necron"]
 const soloRooms = ["deathmite", "dinosite", "melon", "mines", "withermancer", "atlas", "museum"]
@@ -16,6 +21,14 @@ const clearTable = () => {
     const trs = table.getElementsByTagName("tr")
     for (let idx = trs.length - 1; idx > 0; idx--) {
         table.removeChild(trs[idx])
+    }
+}
+
+const clearModal = () => {
+    const ifr = modalProofBody.getElementsByTagName("iframe")
+    if (ifr.length <= 0) return
+    for (let idx = ifr.length - 1; idx >= 0; idx--) {
+        modalProofBody.removeChild(ifr[idx])
     }
 }
 
@@ -120,6 +133,33 @@ const fetchLB = async (floor = "M7") => {
     return res.filter((it) => it.floor == floor)
 }
 
+const loadInfo = (proof) => {
+    if (!proof) return
+
+    clearModal()
+
+    const urls = proof.split(";")
+    modalProof.style.display = "block"
+
+    urls.forEach((rl) => {
+        if (rl.length == 0) return
+        modalProofBody.insertAdjacentHTML(
+            "beforeend",
+            `<iframe
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/${rl}"
+            title="video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          >
+          </iframe>`
+        )
+    })
+}
+
 const loadTable = async (floor = "M7") => {
     try {
         const data = await fetchLB(floor)
@@ -128,7 +168,45 @@ const loadTable = async (floor = "M7") => {
         for (let idx = 0; idx < sorted.length; idx++) {
             let run = sorted[idx]
             let roleId = rankId[idx]
+            /** * @type {string[]}  */
+            let proofs = run.proof
             let clz = roleId ? `class="${roleId}"` : ""
+            let rls = ""
+
+            if (Array.isArray(proofs)) {
+                proofs.forEach((it) => {
+                    const match = it.match(youtubeLinkRegex)
+                    if (match == null) {
+                        console.error(`no match ${match} - ${it}`)
+                        return
+                    }
+                    const [ _, linkId, linkTime ] = match
+                    if (linkId == null || linkId.length == 0) {
+                        console.error(`no link match ${match} - ${linkId};${linkTime}`)
+                        return
+                    }
+    
+                    if (linkTime != null) {
+                        rls += `${linkId}?start=${linkTime}`
+                        return
+                    }
+    
+                    rls += `${linkId};`
+                })
+            } else {
+                const match = proofs.match(youtubeLinkRegex)
+                if (match == null) {
+                    console.error(`no match ${match} - ${proofs}`)
+                }
+                const [ _, linkId, linkTime ] = match
+                if (linkId == null || linkId.length == 0) {
+                    console.error(`no link match ${match} - ${linkId};${linkTime}`)
+                }
+
+                if (linkTime != null) {
+                    rls += `${linkId}?start=${linkTime}`
+                } else rls += `${linkId};`
+            }
 
             table.insertAdjacentHTML("beforeend", `
             <tr>
@@ -136,6 +214,7 @@ const loadTable = async (floor = "M7") => {
                 <td ${clz}>${run.teamName ?? run.player}</td>
                 <td ${clz}>${formatSeconds(run.time)}</td>
                 <td ${clz}>${run.uploadedAt}</td>
+                <td onclick="loadInfo('${rls}')">Info</td>
             </tr>
             `)
         }
@@ -189,3 +268,14 @@ selector.addEventListener("change", (event) => {
 
     loadTable(value)
 })
+
+modalSpanClose.onclick = () => {
+    modalProof.style.display = "none"
+    clearModal()
+}
+
+window.onclick = (event) => {
+    if (event.target != modalProof) return
+    modalProof.style.display = "none"
+    clearModal()
+}
